@@ -2,7 +2,7 @@
 input = contents \
   |> String.split("\n")
 
-defmodule AOC2022Day3A do
+defmodule AOC2022Day3B do
   @letters String.graphemes("abcdefghijklmnopqrstuvwxyz")
 
   def go(i) do
@@ -36,4 +36,4 @@ defmodule AOC2022Day3A do
   end
 end
 
-AOC2022Day3A.go(input)
+AOC2022Day3B.go(input)
