@@ -2,7 +2,7 @@
 input = contents \
   |> String.split("\n")
 
-defmodule AOC2022Day4A do
+defmodule AOC2022Day4B do
   def go(i) do
     i
     |> Enum.chunk_every(2)
@@ -31,11 +31,11 @@ defmodule AOC2022Day4A do
     {a1, b1, b1 - a1}
   end
 
-  def calc_overlap([{first_a, first_b, first}, {second_a, second_b, second}]) do
+  def calc_overlap([{first_a, first_b, first} = f, {second_a, second_b, second} = s]) do
     cond do
       second_b > first_b -> calc_overlap_value([[second_a, second_b], [first_a, first_b]])
       first_b > second_b -> calc_overlap_value([[first_a, first_b], [second_a, second_b]])
-      first_b == second_b -> calc_diff_then_value([{first_a, first_b, first}, {second_a, second_b, second}])
+      first_b == second_b -> calc_diff_then_value([f, s])
       true -> 0
     end
   end
@@ -57,4 +57,4 @@ defmodule AOC2022Day4A do
   end
 end
 
-AOC2022Day4A.go(input)
+AOC2022Day4B.go(input)
