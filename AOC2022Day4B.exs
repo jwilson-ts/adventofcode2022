@@ -31,7 +31,7 @@ defmodule AOC2022Day4B do
     {a1, b1, b1 - a1}
   end
 
-  def calc_overlap([{first_a, first_b, first} = f, {second_a, second_b, second} = s]) do
+  def calc_overlap([{first_a, first_b, _first} = f, {second_a, second_b, _second} = s]) do
     cond do
       second_b > first_b -> calc_overlap_value([[second_a, second_b], [first_a, first_b]])
       first_b > second_b -> calc_overlap_value([[first_a, first_b], [second_a, second_b]])
