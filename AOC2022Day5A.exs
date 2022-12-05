@@ -12,6 +12,7 @@ defmodule AOC2022Day5A do
     parse_layout(layout)
     |> parse_moves(moves)
     |> determine_outcome()
+    |> IO.inspect()
   end
 
   defp parse_layout(layout) do
@@ -50,7 +51,6 @@ defmodule AOC2022Day5A do
       col_to_take_from = Map.get(acc_layers, from_col)
 
       {taken_vals, remaining_vals} = col_to_take_from |> Enum.split(String.to_integer(count))
-      col_to_add_to = Map.get(acc_layers, to_col)
 
       acc_layers
       |> Map.update!(from_col, fn _ -> remaining_vals end)
